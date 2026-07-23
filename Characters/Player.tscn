@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://bfmnrnrcy7ela"]
+
+[ext_resource type="Script" uid="uid://dp1s3j2iy8n5g" path="res://Characters/player.gd" id="1_oo13o"]
+[ext_resource type="Texture2D" uid="uid://cx221ibwp33h5" path="res://icon.svg" id="1_t8hoq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xrivr"]
+size = Vector2(122, 117)
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1123172477 node_paths=PackedStringArray("CoyoteTimer", "JumpBufferTimer")]
+script = ExtResource("1_oo13o")
+CoyoteTimer = NodePath("CoyoteTimer")
+JumpBufferTimer = NodePath("JumpBufferTimer")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1365364043]
+texture = ExtResource("1_t8hoq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=636502317]
+position = Vector2(-1, 2.5)
+shape = SubResource("RectangleShape2D_xrivr")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=335946588]
+
+[node name="CoyoteTimer" type="Timer" parent="." unique_id=1032229820]
+wait_time = 0.1
+one_shot = true
+
+[node name="JumpBufferTimer" type="Timer" parent="." unique_id=1143713702]
+wait_time = 0.12
+one_shot = true
