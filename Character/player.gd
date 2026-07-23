@@ -36,7 +36,7 @@ func _physics_process(delta: float) -> void:
 	
 	if x_input:
 		look_dir_x = int(x_input)
-		print(look_dir_x)
+		#print(look_dir_x)
 	if x_input > 0: # maybe these need to be inside if x_input?
 		pass #play walk_right
 	elif x_input < 0:

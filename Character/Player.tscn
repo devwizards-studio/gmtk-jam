@@ -64,7 +64,7 @@ active_timer = NodePath("ActiveTimer")
 time_price = 50.0
 
 [node name="CooldownTimer" type="Timer" parent="UpgradeThree" unique_id=1720785599]
-wait_time = 30.0
+wait_time = 2.0
 one_shot = true
 
 [node name="ActiveTimer" type="Timer" parent="UpgradeThree" unique_id=1340193884]

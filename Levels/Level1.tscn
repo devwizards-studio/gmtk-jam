@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cbl6hdllx5fj5" path="res://Levels/Obstacles/Mummy.tscn" id="6_05pb0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xrivr"]
-size = Vector2(1704, 115)
+size = Vector2(2586, 115)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_13qdw"]
 size = Vector2(257, 45)
@@ -35,21 +35,21 @@ game_timer = NodePath("GameTimer")
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=792581154]
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=1536036346]
-position = Vector2(297, 256)
-scale = Vector2(13.531251, 1)
+position = Vector2(728.4999, 256)
+scale = Vector2(20.273438, 1)
 texture = ExtResource("2_fhqol")
 
 [node name="Sprite2D2" type="Sprite2D" parent="StaticBody2D" unique_id=427192433]
-position = Vector2(532, -286)
+position = Vector2(1569, 108)
 scale = Vector2(2.078125, 0.375)
 texture = ExtResource("2_fhqol")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1507633885]
-position = Vector2(294, 256.5)
+position = Vector2(735, 256.5)
 shape = SubResource("RectangleShape2D_xrivr")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=530957856]
-position = Vector2(533, -285)
+position = Vector2(1568, 105)
 shape = SubResource("RectangleShape2D_13qdw")
 
 [node name="Sprite2D3" type="Sprite2D" parent="StaticBody2D" unique_id=558851794]
@@ -62,7 +62,7 @@ position = Vector2(839.5, -66.25)
 shape = SubResource("RectangleShape2D_njqwk")
 
 [node name="GameTimer" type="Timer" parent="." unique_id=254398723]
-wait_time = 120.0
+wait_time = 1000.0
 one_shot = true
 autostart = true
 
@@ -74,7 +74,7 @@ player = NodePath("../CharacterBody2D")
 position = Vector2(1413, 17)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EndArea" unique_id=776873576]
-position = Vector2(2.5, 3.5)
+position = Vector2(579, 85)
 shape = SubResource("RectangleShape2D_b1lj4")
 
 [node name="Killzone" parent="." unique_id=280576651 instance=ExtResource("5_nutv8")]
