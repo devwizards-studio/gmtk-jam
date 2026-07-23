@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://c8qqhfsn3ov55"]
+
+[ext_resource type="Script" uid="uid://b3glp36buhcvu" path="res://UI/player_ui.gd" id="1_225y7"]
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=1722666215]
+script = ExtResource("1_225y7")
+
+[node name="TimeHourglass" type="TextureProgressBar" parent="." unique_id=174971820]
+offset_right = 178.0
+offset_bottom = 173.0
+fill_mode = 2
+
+[node name="Upgrades" type="HBoxContainer" parent="." unique_id=1091525042]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="." unique_id=1535621354]
+offset_right = 279.0
+offset_bottom = 235.0

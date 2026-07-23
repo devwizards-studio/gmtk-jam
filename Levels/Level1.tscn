@@ -32,7 +32,7 @@ game_timer = NodePath("GameTimer")
 
 [node name="CharacterBody2D" parent="." unique_id=1123172477 instance=ExtResource("1_3anf8")]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=792581154 groups=["solid"]]
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=792581154]
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=1536036346]
 position = Vector2(297, 256)

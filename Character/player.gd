@@ -3,6 +3,7 @@ class_name Player
 
 
 var game_timer: Timer
+@export var player_ui: CanvasLayer
 @export_category("Upgrades")
 @export var upgrade_arr: Array[Upgrade]
 

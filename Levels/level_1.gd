@@ -11,8 +11,8 @@ func _ready() -> void:
 			upgrade.connect("reduce_time", game_timer_reduce)
 
 #for debugging time
-#func _process(delta: float) -> void:
-	#print(game_timer.time_left)
+func _process(delta: float) -> void:
+	player.player_ui.label.text = str(game_timer.time_left)
 
 
 func _on_game_timer_timeout() -> void:

@@ -6,12 +6,14 @@
 [ext_resource type="Script" uid="uid://cca2wbnvhtiu7" path="res://Character/upgrade_one.gd" id="4_ynroq"]
 [ext_resource type="Script" uid="uid://dtcrq6h6ajx5k" path="res://Character/upgrade_two.gd" id="5_v6d5b"]
 [ext_resource type="Script" uid="uid://bn85yctxwce5g" path="res://Character/upgrade_three.gd" id="6_55lj8"]
+[ext_resource type="PackedScene" uid="uid://c8qqhfsn3ov55" path="res://UI/playerUI.tscn" id="7_5ydrh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xrivr"]
 size = Vector2(122, 117)
 
-[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1123172477 node_paths=PackedStringArray("upgrade_arr", "CoyoteTimer", "JumpBufferTimer")]
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1123172477 node_paths=PackedStringArray("player_ui", "upgrade_arr", "CoyoteTimer", "JumpBufferTimer")]
 script = ExtResource("1_oo13o")
+player_ui = NodePath("CanvasLayer")
 upgrade_arr = [NodePath("UpgradeOne"), NodePath("UpgradeTwo"), NodePath("UpgradeThree")]
 CoyoteTimer = NodePath("CoyoteTimer")
 JumpBufferTimer = NodePath("JumpBufferTimer")
@@ -77,3 +79,5 @@ target_position = Vector2(325, 0)
 unique_name_in_owner = true
 position = Vector2(0, -1)
 target_position = Vector2(-325, 0)
+
+[node name="CanvasLayer" parent="." unique_id=1722666215 instance=ExtResource("7_5ydrh")]
