@@ -1,0 +1,6 @@
+[gd_resource type="FontVariation" format=3 uid="uid://bo4u2i8c4lnli"]
+
+[ext_resource type="FontFile" uid="uid://rk13popluslr" path="res://Fonts/Jacquard12-Regular.ttf" id="1_j2d2t"]
+
+[resource]
+base_font = ExtResource("1_j2d2t")

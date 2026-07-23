@@ -2,6 +2,9 @@
 
 [ext_resource type="Script" uid="uid://b3glp36buhcvu" path="res://UI/player_ui.gd" id="1_225y7"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_s7eya"]
+font_size = 48
+
 [node name="CanvasLayer" type="CanvasLayer" unique_id=1722666215]
 script = ExtResource("1_225y7")
 
@@ -22,3 +25,4 @@ grow_horizontal = 2
 [node name="Label" type="Label" parent="." unique_id=1535621354]
 offset_right = 279.0
 offset_bottom = 235.0
+label_settings = SubResource("LabelSettings_s7eya")

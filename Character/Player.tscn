@@ -22,7 +22,7 @@ JumpBufferTimer = NodePath("JumpBufferTimer")
 texture = ExtResource("1_t8hoq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=636502317]
-position = Vector2(-1, 2.5)
+position = Vector2(-1, 0)
 shape = SubResource("RectangleShape2D_xrivr")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=335946588]

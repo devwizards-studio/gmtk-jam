@@ -29,6 +29,10 @@ window/stretch/aspect="expand"
 
 solid=""
 
+[gui]
+
+theme/custom_font="uid://rk13popluslr"
+
 [input]
 
 right={
