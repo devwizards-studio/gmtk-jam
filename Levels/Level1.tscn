@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cx221ibwp33h5" path="res://icon.svg" id="2_fhqol"]
 [ext_resource type="PackedScene" uid="uid://b70pb8nr044ud" path="res://Levels/StartArea.tscn" id="4_nutv8"]
 [ext_resource type="PackedScene" uid="uid://bbt588fink05n" path="res://Levels/Obstacles/killzone.tscn" id="5_nutv8"]
+[ext_resource type="PackedScene" uid="uid://cbl6hdllx5fj5" path="res://Levels/Obstacles/Mummy.tscn" id="6_05pb0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xrivr"]
 size = Vector2(1704, 115)
@@ -21,6 +22,9 @@ size = Vector2(127, 121)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wi6ju"]
 size = Vector2(4646, 578)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7f2x3"]
+size = Vector2(69, 191)
+
 [node name="Main" type="Node2D" unique_id=658485625 node_paths=PackedStringArray("player", "game_timer")]
 script = ExtResource("1_iotdp")
 player = NodePath("CharacterBody2D")
@@ -36,7 +40,7 @@ scale = Vector2(13.531251, 1)
 texture = ExtResource("2_fhqol")
 
 [node name="Sprite2D2" type="Sprite2D" parent="StaticBody2D" unique_id=427192433]
-position = Vector2(414, 71)
+position = Vector2(532, -286)
 scale = Vector2(2.078125, 0.375)
 texture = ExtResource("2_fhqol")
 
@@ -45,7 +49,7 @@ position = Vector2(294, 256.5)
 shape = SubResource("RectangleShape2D_xrivr")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=530957856]
-position = Vector2(410, 70)
+position = Vector2(533, -285)
 shape = SubResource("RectangleShape2D_13qdw")
 
 [node name="Sprite2D3" type="Sprite2D" parent="StaticBody2D" unique_id=558851794]
@@ -79,6 +83,22 @@ position = Vector2(289, 473)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone" unique_id=1252573583]
 position = Vector2(-145, 205)
 shape = SubResource("RectangleShape2D_wi6ju")
+
+[node name="Mummy" parent="." unique_id=1847278642 instance=ExtResource("6_05pb0")]
+position = Vector2(180, 123)
+collision_layer = 1
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=1425089963]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D2" unique_id=1231141062]
+position = Vector2(18, 100)
+shape = SubResource("RectangleShape2D_7f2x3")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D2" unique_id=1418882048]
+position = Vector2(451, 97)
+shape = SubResource("RectangleShape2D_7f2x3")
 
 [connection signal="timeout" from="GameTimer" to="." method="_on_game_timer_timeout"]
 [connection signal="body_entered" from="EndArea" to="." method="_on_end_area_body_entered"]

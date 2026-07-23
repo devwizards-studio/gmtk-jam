@@ -38,7 +38,7 @@ func _physics_process(delta: float) -> void:
 		print(look_dir_x)
 	if x_input > 0: # maybe these need to be inside if x_input?
 		pass #play walk_right
-	else:
+	elif x_input < 0:
 		pass #play walk.flip_h
 	
 	if is_on_floor():
