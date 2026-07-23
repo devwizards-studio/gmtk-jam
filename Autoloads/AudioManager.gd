@@ -14,7 +14,7 @@ var music_player_gameover: AudioStreamPlayer
 var coming_from_credits: bool = false
 
 var dj: AudioStreamPlayer
-
+@export var game_music : AudioStream
 func _ready() -> void:
 	music_player = AudioStreamPlayer.new()
 	music_player.bus = "Music"
@@ -40,6 +40,9 @@ func _ready() -> void:
 	music_player_gameover.bus = "Music"
 	music_player_gameover.process_mode = Node.PROCESS_MODE_ALWAYS
 	add_child(music_player_gameover)
+	
+	music_player.stream = game_music
+	music_player.play()
 	
 func set_master_volume(value: float) -> void:
 	master_volume = value

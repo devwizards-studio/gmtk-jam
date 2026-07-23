@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://bfqqpyevgp22f"]
+
+[ext_resource type="Script" uid="uid://bh1hce11u7dpl" path="res://Autoloads/AudioManager.gd" id="1_nok8h"]
+[ext_resource type="AudioStream" uid="uid://c8rf37l1a0snp" path="res://Audio/2. Scorchlight Mirage.ogg" id="2_7ykln"]
+
+[node name="AudioManager" type="Node" unique_id=585396783]
+script = ExtResource("1_nok8h")
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="." unique_id=596923693]
+stream = ExtResource("2_7ykln")
+bus = &"Music"

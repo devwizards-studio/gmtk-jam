@@ -1,9 +1,121 @@
 [gd_scene format=3 uid="uid://cg14wal0dj7xw"]
 
-[node name="MainMenu" type="Control" unique_id=1726543465]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[ext_resource type="Script" uid="uid://hedbdndswmej" path="res://UI/main_menu.gd" id="1_otjfi"]
+[ext_resource type="Texture2D" uid="uid://cxf7xcp0l1ryo" path="res://UI/assets-drawn/piramide.webp" id="2_obtq6"]
+[ext_resource type="Script" uid="uid://b6nrig0wmt6pq" path="res://Scripts/scene_switcher.gd" id="3_t4ff4"]
+[ext_resource type="Texture2D" uid="uid://0vhb5imfbeuo" path="res://UI/assets-drawn/play.png" id="4_w5vcv"]
+[ext_resource type="Texture2D" uid="uid://bhpqxh4hpdm51" path="res://UI/assets-drawn/settings.png" id="5_d2d4f"]
+[ext_resource type="Texture2D" uid="uid://ntlu53awt2at" path="res://UI/assets-drawn/quit.png" id="6_6vw7e"]
+[ext_resource type="AudioStream" uid="uid://c8rf37l1a0snp" path="res://Audio/2. Scorchlight Mirage.ogg" id="7_obtq6"]
+[ext_resource type="PackedScene" uid="uid://ibs0ifbu0h7v" path="res://Levels/options_panel.tscn" id="8_t4ff4"]
+
+[node name="MainMenu" type="CanvasLayer" unique_id=26005483]
+script = ExtResource("1_otjfi")
+menu_music = ExtResource("7_obtq6")
+
+[node name="MenuScreen" type="TextureRect" parent="." unique_id=1812530362]
+offset_right = 1153.0
+offset_bottom = 647.0
+texture = ExtResource("2_obtq6")
+
+[node name="ButtonManager" type="Control" parent="MenuScreen" unique_id=1990474681]
+anchors_preset = 0
+offset_right = 1155.0
+offset_bottom = 644.0
+
+[node name="Start" type="Button" parent="MenuScreen/ButtonManager" unique_id=1885364604]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 865.0
+offset_top = 136.0
+offset_right = 1025.0
+offset_bottom = 188.0
+script = ExtResource("3_t4ff4")
+
+[node name="TextureRect" type="TextureRect" parent="MenuScreen/ButtonManager/Start" unique_id=1122754066]
+layout_mode = 0
+offset_left = 15.0
+offset_right = 144.0
+offset_bottom = 48.0
+texture = ExtResource("4_w5vcv")
+expand_mode = 1
+
+[node name="Options" type="Button" parent="MenuScreen/ButtonManager" unique_id=100740802]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 862.0
+offset_top = 234.0
+offset_right = 1033.0
+offset_bottom = 288.0
+script = ExtResource("3_t4ff4")
+
+[node name="TextureRect" type="TextureRect" parent="MenuScreen/ButtonManager/Options" unique_id=1154125202]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 3.0
+offset_right = 156.0
+offset_bottom = 50.0
+texture = ExtResource("5_d2d4f")
+expand_mode = 1
+
+[node name="Quit" type="Button" parent="MenuScreen/ButtonManager" unique_id=1292268920]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 863.0
+offset_top = 336.0
+offset_right = 1035.0
+offset_bottom = 389.0
+script = ExtResource("3_t4ff4")
+
+[node name="TextureRect" type="TextureRect" parent="MenuScreen/ButtonManager/Quit" unique_id=363911309]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 3.0
+offset_right = 154.0
+offset_bottom = 49.0
+texture = ExtResource("6_6vw7e")
+expand_mode = 1
+
+[node name="LevelManager" type="Control" parent="MenuScreen" unique_id=1787445897]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Level1" type="Button" parent="MenuScreen/LevelManager" unique_id=1177718619]
+layout_mode = 0
+offset_left = 160.0
+offset_top = 179.0
+offset_right = 301.0
+offset_bottom = 257.0
+text = "Level 1"
+
+[node name="TextureRect" type="TextureRect" parent="MenuScreen/LevelManager/Level1" unique_id=1336901996]
+layout_mode = 0
+offset_right = 140.0
+offset_bottom = 74.0
+
+[node name="Level2" type="Button" parent="MenuScreen/LevelManager" unique_id=2117028171]
+layout_mode = 0
+offset_left = 523.0
+offset_top = 170.0
+offset_right = 672.0
+offset_bottom = 253.0
+text = "Level 2"
+
+[node name="Level3" type="Button" parent="MenuScreen/LevelManager" unique_id=798040556]
+layout_mode = 0
+offset_left = 855.0
+offset_top = 177.0
+offset_right = 1011.0
+offset_bottom = 254.0
+text = "Level 3"
+
+[node name="OptionsPanel" parent="." unique_id=355889237 instance=ExtResource("8_t4ff4")]
+
+[connection signal="pressed" from="MenuScreen/ButtonManager/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="MenuScreen/ButtonManager/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="MenuScreen/ButtonManager/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="MenuScreen/LevelManager/Level1" to="." method="_on_level_1_pressed"]
+[connection signal="pressed" from="MenuScreen/LevelManager/Level2" to="." method="_on_level_2_pressed"]
+[connection signal="pressed" from="MenuScreen/LevelManager/Level3" to="." method="_on_level_3_pressed"]

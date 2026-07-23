@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://c8rf37l1a0snp"
+path="res://.godot/imported/2. Scorchlight Mirage.ogg-ee0572397a9ca97a370aece2a6fa8e08.oggvorbisstr"
+
+[deps]
+
+source_file="res://Audio/2. Scorchlight Mirage.ogg"
+dest_files=["res://.godot/imported/2. Scorchlight Mirage.ogg-ee0572397a9ca97a370aece2a6fa8e08.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
