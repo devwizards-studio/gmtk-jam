@@ -1,29 +1,84 @@
 [gd_scene format=3 uid="uid://bfmnrnrcy7ela"]
 
 [ext_resource type="Script" uid="uid://dp1s3j2iy8n5g" path="res://Character/player.gd" id="1_oo13o"]
-[ext_resource type="Texture2D" uid="uid://cx221ibwp33h5" path="res://icon.svg" id="1_t8hoq"]
+[ext_resource type="Texture2D" uid="uid://b11at33lrjvoh" path="res://Sprites/Player/PlayerIdle.png" id="2_o1y46"]
 [ext_resource type="PackedScene" uid="uid://x0uxjqbf4m8v" path="res://Character/upgrade.tscn" id="3_1ju47"]
+[ext_resource type="Texture2D" uid="uid://cbmvtrd3wp5xu" path="res://Sprites/Player/PlayerMidAir.png" id="3_qolio"]
+[ext_resource type="Texture2D" uid="uid://chjkj1gfvkuyg" path="res://Sprites/Player/PlayerWalk.png" id="4_y83ax"]
 [ext_resource type="Script" uid="uid://cca2wbnvhtiu7" path="res://Character/upgrade_one.gd" id="4_ynroq"]
 [ext_resource type="Script" uid="uid://dtcrq6h6ajx5k" path="res://Character/upgrade_two.gd" id="5_v6d5b"]
 [ext_resource type="Script" uid="uid://bn85yctxwce5g" path="res://Character/upgrade_three.gd" id="6_55lj8"]
 [ext_resource type="PackedScene" uid="uid://c8qqhfsn3ov55" path="res://UI/playerUI.tscn" id="7_5ydrh"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xrivr"]
-size = Vector2(122, 117)
+[sub_resource type="AtlasTexture" id="AtlasTexture_d703b"]
+atlas = ExtResource("2_o1y46")
+region = Rect2(0, 0, 32, 64)
 
-[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1123172477 node_paths=PackedStringArray("player_ui", "upgrade_arr", "CoyoteTimer", "JumpBufferTimer")]
+[sub_resource type="AtlasTexture" id="AtlasTexture_28ti7"]
+atlas = ExtResource("2_o1y46")
+region = Rect2(32, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fo5vu"]
+atlas = ExtResource("4_y83ax")
+region = Rect2(0, 0, 42, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p4yhq"]
+atlas = ExtResource("4_y83ax")
+region = Rect2(42, 0, 42, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_13qdw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d703b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_28ti7")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 2.5
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_qolio")
+}],
+"loop": 1,
+"name": &"midair",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fo5vu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p4yhq")
+}],
+"loop": 1,
+"name": &"walk",
+"speed": 2.5
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gt56a"]
+radius = 16.0
+height = 66.0
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1123172477 node_paths=PackedStringArray("player_ui", "upgrade_arr", "sprite", "CoyoteTimer", "JumpBufferTimer")]
+z_index = 10
 script = ExtResource("1_oo13o")
 player_ui = NodePath("CanvasLayer")
 upgrade_arr = [NodePath("UpgradeOne"), NodePath("UpgradeTwo"), NodePath("UpgradeThree")]
+sprite = NodePath("AnimatedSprite2D")
 CoyoteTimer = NodePath("CoyoteTimer")
 JumpBufferTimer = NodePath("JumpBufferTimer")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1365364043]
-texture = ExtResource("1_t8hoq")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1093916759]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_13qdw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=636502317]
 position = Vector2(-1, 0)
-shape = SubResource("RectangleShape2D_xrivr")
+shape = SubResource("CapsuleShape2D_gt56a")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=335946588]
 
@@ -73,11 +128,10 @@ one_shot = true
 
 [node name="RightRaycast" type="RayCast2D" parent="." unique_id=1092283067]
 unique_name_in_owner = true
-target_position = Vector2(325, 0)
+target_position = Vector2(250, 0)
 
 [node name="LeftRaycast" type="RayCast2D" parent="." unique_id=1177198988]
 unique_name_in_owner = true
-position = Vector2(0, -1)
-target_position = Vector2(-325, 0)
+target_position = Vector2(-250, 0)
 
 [node name="CanvasLayer" parent="." unique_id=1722666215 instance=ExtResource("7_5ydrh")]
