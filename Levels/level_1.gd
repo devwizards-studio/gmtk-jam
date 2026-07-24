@@ -3,8 +3,22 @@ class_name Level
 
 @export var player: Player
 @export var game_timer: Timer
+#@onready var cam_player: AnimationPlayer = $Camera2D/AnimationPlayer
+@onready var camera: Camera2D = $Camera2D
+
 
 func _ready() -> void:
+	process_mode = Node.PROCESS_MODE_DISABLED
+	await get_tree().create_timer(2.0).timeout
+	var tween = get_tree().create_tween()
+	tween.tween_property(camera, "position", player.camera.global_position, 6.0 )
+	await get_tree().create_timer(6.0).timeout
+	#cam_player.play("camera_pan")
+	#await cam_player.animation_finished
+	#cam_player.queue_free()
+	camera.queue_free()
+	process_mode = Node.PROCESS_MODE_INHERIT
+	
 	player.game_timer = game_timer
 	for upgrade in player.upgrade_arr:
 		if upgrade != null:

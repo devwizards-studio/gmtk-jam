@@ -6,11 +6,12 @@ var gravity: float = 12.0
 
 @onready var right_cast: RayCast2D = $RightCast
 @onready var left_cast: RayCast2D = $LeftCast
-@export var sprite: Sprite2D
+@export var sprite: AnimatedSprite2D
 
 func _ready() -> void:
 	right_cast.set_collision_mask_value(3, true)
 	left_cast.set_collision_mask_value(3, true)
+	sprite.play("walk")
 
 
 func _physics_process(delta: float) -> void:

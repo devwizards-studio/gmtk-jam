@@ -3,12 +3,14 @@ class_name Player
 
 
 var game_timer: Timer
+@onready var camera: Camera2D = $Camera2D
 @export var player_ui: CanvasLayer
 @export_category("Upgrades")
 @export var upgrade_arr: Array[Upgrade]
 
 
 @export_category("Movement")
+@export var sprite: AnimatedSprite2D
 @export var CoyoteTimer : Timer
 @export var JumpBufferTimer : Timer
 
@@ -38,15 +40,19 @@ func _physics_process(delta: float) -> void:
 		look_dir_x = int(x_input)
 		#print(look_dir_x)
 	if x_input > 0: # maybe these need to be inside if x_input?
-		pass #play walk_right
+		sprite.flip_h = false
+		sprite.play("walk")
 	elif x_input < 0:
-		pass #play walk.flip_h
+		sprite.flip_h = true
+		sprite.play("walk")
+	else: sprite.play("default")
 	
 	if is_on_floor():
 		jumps_done = 0
 		coyote_activated = false
 		gravity = lerp(gravity, 12.0, 12.0 * delta)
 	else:
+		sprite.play("midair")
 		if jumps_done == 0:
 			jumps_done += 1
 		if CoyoteTimer.is_stopped() and !coyote_activated:
@@ -59,6 +65,7 @@ func _physics_process(delta: float) -> void:
 		
 		gravity = lerp(gravity, MAX_GRAVITY, 12.0 * delta)
 	if Input.is_action_just_pressed("jump"):
+		
 		if JumpBufferTimer.is_stopped():
 			JumpBufferTimer.start()
 			print("jump buffer started")
@@ -74,7 +81,7 @@ func _physics_process(delta: float) -> void:
 			velocity.y = JUMP_HEIGHT
 			jumps_done += 1
 			JumpBufferTimer.stop()
-			upgrade_arr[0].active_timer.timeout
+			upgrade_arr[0].active_timer.timeout #doesnt work
 	
 	velocity.y += gravity
 	
